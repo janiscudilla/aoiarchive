@@ -1,4 +1,4 @@
-import { release } from '../config/release'
+import { release, releaseDisplay } from '../config/release'
 import { Brand } from './Brand'
 
 export type Route = 'dashboard' | 'scenes' | 'characters' | 'timeline' | 'media' | 'maps' | 'settings' | 'read'
@@ -28,7 +28,7 @@ export function Sidebar({ route, onNavigate }: { route: Route; onNavigate: (rout
     </nav>
     <div className="mt-auto space-y-4">
       <NavButton item={{ route: 'settings', label: 'Settings', icon: '⚙' }} active={route === 'settings'} onNavigate={onNavigate} />
-      <p className="border-t border-stone-200 pt-4 text-[11px] tracking-wide text-stone-400">{release.build}<br />Released {release.date}</p>
+      <p className="border-t border-stone-200 pt-4 text-[11px] tracking-wide text-stone-400">{releaseDisplay}<br />Released {release.date}</p>
     </div>
   </aside>
 }
@@ -38,7 +38,7 @@ export function MobileHeader({ route, onNavigate }: { route: Route; onNavigate: 
   return <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-stone-200 bg-[#f6f1e8]/95 px-5 backdrop-blur lg:hidden">
     <button onClick={() => onNavigate('dashboard')} aria-label="Go to archive"><Brand compact /></button>
     <span className="text-sm font-medium text-stone-700">{title}</span>
-    <span className="text-[10px] tracking-wide text-stone-400">{release.build}</span>
+    <span className="text-[10px] tracking-wide text-stone-400">{releaseDisplay}</span>
   </header>
 }
 

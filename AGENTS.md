@@ -23,14 +23,15 @@ AOI Archive is a private platform for fiction writing, reading, and interconnect
 
 - Builds are sequential and permanent: `Build 001`, `Build 002`, and so on. Never reset or reuse a build number.
 - Increment once for each release-ready build, never for temporary commits.
-- Store each release's build number and release date in centralized release metadata, which the application displays. Never derive it from a GitHub commit at runtime.
+- Versions use the display format `Build NNN · Vx.y.z`. Store the build number, version, milestone, and release date together in centralized release metadata, which the application displays. Never derive it from a GitHub commit at runtime.
+- Milestones are `V0.1.x` Application Foundation, `V0.2.x` Private Writing Workspace, `V0.3.x` Interconnected AOI Archive, and `V1.0.x` Full Storytelling Platform. Increment the patch number for release-ready changes within a milestone; advance milestones only with explicit approval.
 - Release commits must use: `Build NNN: <release summary>`.
 - Test the relevant application behavior and production build before committing.
 
 ## Release process
 
-1. Update the centralized release metadata for the new release number and date.
-2. Verify the build number is displayed in desktop and mobile layouts.
+1. Update the centralized release metadata for the new build number, version, milestone, and date.
+2. Verify the build and version display is visible in desktop and mobile layouts and discreet on reader pages.
 3. Install dependencies as needed and run `npm run build`; resolve errors.
 4. Review the changed files and commit once with the required `Build NNN:` message.
 5. Do not push or deploy until explicit approval is received.
