@@ -13,10 +13,10 @@ Every release has a permanent sequential build number and a semantic version, di
 | Version range | Milestone | Focus |
 | --- | --- | --- |
 | `V0.1.x` | Application Foundation | Responsive shell, navigation, archive structure, and reading foundation. |
-| `V0.2.x` | Private Writing Workspace | Private writing, editing, and organization workflows. |
+| `V0.2.x` | Private Writing Workspace | Private writing, editing, and organization workflows. Build 004 establishes Firebase/Auth/Firestore foundations and a first editor shell. |
 | `V0.3.x` | Interconnected AOI Archive | Relationships, timelines, maps, and interconnected archive tools. |
 | `V1.0.x` | Full Storytelling Platform | Complete, cohesive storytelling platform. |
 
 ## Current release
 
-`Build 003 · V0.1.0` — Application Foundation.
+`Build 004 · V0.2.0` — Private Writing Workspace.

@@ -14,10 +14,11 @@ AOI Archive is a private platform for fiction writing, reading, and interconnect
 ## Services and dependencies
 
 - Use only free, open-source dependencies and services.
-- Do not configure or alter Firebase without explicit approval.
+- Firebase may be configured only with explicit approval. Client Firebase configuration belongs in local `.env` files and is never committed; service-account JSON, private keys, tokens, Firebase Storage, Cloud Functions, and Blaze-only features are out of scope.
 - Do not deploy the site without explicit approval.
 - Do not add paid services.
 - Do not establish real AOI story content as canon; use clearly fictional placeholder content.
+- Treat the Firestore rules file as the security boundary: it must deny access by default and allow only the configured owner UID. Test rules with Firebase emulators before use with real archive content.
 
 ## Builds, releases, and Git
 
