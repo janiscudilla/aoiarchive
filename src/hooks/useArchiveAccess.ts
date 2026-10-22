@@ -10,11 +10,15 @@ export function useArchiveAccess() {
   const [access, setAccess] = useState<ArchiveAccess>(!isFirebaseConfigured ? 'setup' : !isOwnerConfigured ? 'owner-setup' : 'loading')
 
   useEffect(() => {
-    if (!auth || !isOwnerConfigured) return
+    if (!auth) return
     return onAuthStateChanged(auth, (nextUser) => {
       setUser(nextUser)
+      if (!isOwnerConfigured) {
+        setAccess('owner-setup')
+        return
+      }
       setAccess(!nextUser ? 'signed-out' : nextUser.uid === ownerUid ? 'owner' : 'unauthorized')
-    }, () => { setError('Authentication status could not be verified.'); setAccess('signed-out') })
+    }, () => { setError('Authentication status could not be verified.'); setAccess(isOwnerConfigured ? 'signed-out' : 'owner-setup') })
   }, [])
 
   async function signIn() {

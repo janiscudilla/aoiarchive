@@ -20,6 +20,10 @@ The public application is deliberately safe before Firebase is configured: it do
 
 Firebase web configuration values are not server secrets, but `.env.local` is ignored and must not contain service-account files, private keys, or tokens.
 
+### First-time owner UID discovery
+
+When Firebase is configured but no owner UID is present, the Scenes page offers a narrow **Continue with Google** setup mode. It displays the signed-in account's Firebase UID and performs no Firestore read or write. Copy that UID, sign out, then configure it as `VITE_AOI_OWNER_UID` for the next private-access release and replace the placeholder in `firestore.rules` with the same value.
+
 ### Rule testing before real data
 
 Use the free Firebase Local Emulator Suite before creating real archive content:
