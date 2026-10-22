@@ -10,10 +10,10 @@ npm run dev
 
 ## Firebase setup (required before private writing features work)
 
-The public application is deliberately safe before Firebase is configured: it does not initialize Firebase, offers no sign-in, and loads no archive content.
+The public application is deliberately safe before Firebase is configured: it does not initialize Firebase, offers no sign-in, and loads no archive content. When the six Firebase web-app values are present but the owner UID is absent, Firebase may initialize but sign-in and all archive access remain disabled.
 
 1. Create a Firebase project on the free Spark plan; enable **Google** in Firebase Authentication and create a Cloud Firestore database.
-2. Copy `.env.example` to `.env.local` and provide the Firebase web app values plus the exact Firebase Authentication UID that is allowed to own the archive.
+2. Copy `.env.example` to `.env.local` and provide the Firebase web app values plus the exact Firebase Authentication UID that is allowed to own the archive. For GitHub Pages, configure the six `VITE_FIREBASE_*` web-app values as repository variables and configure `VITE_AOI_OWNER_UID` separately before enabling private access.
 3. Add your local and deployed URLs to Firebase Authentication's authorized domains.
 4. In `firestore.rules`, replace `REPLACE_WITH_OWNER_UID` with that same UID, then deploy rules using the Firebase CLI: `npx firebase-tools deploy --only firestore:rules`.
 5. Restart the Vite development server after modifying `.env.local`.

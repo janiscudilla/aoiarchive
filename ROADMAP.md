@@ -19,4 +19,4 @@ Every release has a permanent sequential build number and a semantic version, di
 
 ## Current release
 
-`Build 004 · V0.2.0` — Private Writing Workspace.
+`Build 005 · V0.2.1` — Private Writing Workspace.

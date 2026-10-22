@@ -15,12 +15,14 @@ const requiredConfiguration = [
   firebaseConfig.apiKey,
   firebaseConfig.authDomain,
   firebaseConfig.projectId,
+  firebaseConfig.storageBucket,
+  firebaseConfig.messagingSenderId,
   firebaseConfig.appId,
-  import.meta.env.VITE_AOI_OWNER_UID,
 ]
 
 export const ownerUid = import.meta.env.VITE_AOI_OWNER_UID?.trim() ?? ''
 export const isFirebaseConfigured = requiredConfiguration.every((value) => Boolean(value?.trim()))
+export const isOwnerConfigured = Boolean(ownerUid)
 
 let app: FirebaseApp | undefined
 let auth: Auth | undefined

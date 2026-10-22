@@ -1,6 +1,6 @@
 export const release = {
-  build: 'Build 004',
-  version: 'V0.2.0',
+  build: 'Build 005',
+  version: 'V0.2.1',
   date: 'October 22, 2026',
   milestone: 'Private Writing Workspace',
 } as const
