@@ -2,12 +2,10 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Replace this placeholder with the exact Firebase Authentication UID of
-    // the archive owner before publishing rules. It intentionally matches no
-    // user until then, so all archive requests are denied by default.
+    // The sole authorized archive owner. All other users are denied.
     function isArchiveOwner() {
       return request.auth != null &&
-        request.auth.uid == 'REPLACE_WITH_OWNER_UID';
+        request.auth.uid == 'rzbJ6am5rjQlfE9C2CvBioKWiV13';
     }
 
     match /archives/{ownerUid}/scenes/{sceneId} {

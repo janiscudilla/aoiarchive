@@ -19,6 +19,7 @@ AOI Archive is a private platform for fiction writing, reading, and interconnect
 - Do not add paid services.
 - Do not establish real AOI story content as canon; use clearly fictional placeholder content.
 - Treat the Firestore rules file as the security boundary: it must deny access by default and allow only the configured owner UID. Test rules with Firebase emulators before use with real archive content.
+- Keep `VITE_AOI_OWNER_UID` in GitHub Actions variables and the matching UID in `firestore.rules`; a mismatch must fail closed. Never replace UID authorization with email-only authorization.
 
 ## Builds, releases, and Git
 
