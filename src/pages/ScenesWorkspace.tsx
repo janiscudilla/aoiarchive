@@ -31,10 +31,10 @@ export function ScenesWorkspace() {
     setError(null); setSaving(true)
     try { const id = await createScene(newSceneInput()); const next = await readScene(id); if (next) { setScenes((items) => [...items, next]); setSelected(next) } } catch (cause) { setError(cause instanceof Error ? cause.message : 'Scene could not be created.') } finally { setSaving(false) }
   }
-  async function saveScene(input: SceneInput) {
-    if (!selected) return
+  async function saveScene(input: SceneInput): Promise<boolean> {
+    if (!selected) return false
     setError(null); setSaving(true)
-    try { await updateScene(selected.id, input); const next = await readScene(selected.id); if (next) { setSelected(next); setScenes((items) => items.map((item) => item.id === next.id ? next : item)) } } catch (cause) { setError(cause instanceof Error ? cause.message : 'Scene could not be saved.') } finally { setSaving(false) }
+    try { await updateScene(selected.id, input); const next = await readScene(selected.id); if (next) { setSelected(next); setScenes((items) => items.map((item) => item.id === next.id ? next : item)) }; return true } catch (cause) { setError(cause instanceof Error ? cause.message : 'Scene could not be saved.'); return false } finally { setSaving(false) }
   }
   async function removeScene() {
     if (!selected || !window.confirm(`Delete “${selected.title}”?`)) return
